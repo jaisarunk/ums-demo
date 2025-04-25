@@ -10,6 +10,8 @@ import {
   Grid
 } from '@mui/material';
 import { DatePicker } from '@mui/x-date-pickers';
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 
 const AdmissionForm2 = () => {
   const [formData, setFormData] = useState({
@@ -45,7 +47,12 @@ const AdmissionForm2 = () => {
   };
 
   return (
-    <Paper elevation={3} sx={{ p: 4, maxWidth: 800, margin: 'auto', mt: 4 }}>
+    <LocalizationProvider dateAdapter={AdapterDateFns}>
+      <Paper elevation={3} sx={{ p: 4, maxWidth: 800, margin: 'auto', mt: 4 }}>
+      <Typography variant="h4" gutterBottom sx={{ mb: 4, textAlign: 'center' }}>
+        Student Admission Form
+      </Typography>
+      <Paper elevation={3} sx={{ p: 4, maxWidth: 800, margin: 'auto', mt: 4 }}>
       <Typography variant="h4" gutterBottom sx={{ mb: 4, textAlign: 'center' }}>
         Student Admission Form
       </Typography>
@@ -227,6 +234,9 @@ const AdmissionForm2 = () => {
         </Box>
       </form>
     </Paper>
+      </Paper>
+    </LocalizationProvider>
+    
   );
 };
 
